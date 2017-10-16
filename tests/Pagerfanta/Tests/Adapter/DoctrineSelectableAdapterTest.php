@@ -20,9 +20,14 @@ class DoctrineSelectableAdapterTest extends TestCase
 
     protected function setUp()
     {
-        if ($this->isDoctrine23OrGreaterNotAvailable()) {
-            $this->markTestSkipped('This test can only be run using Doctrine >= 2.3');
+        if (!class_exists(\Doctrine\Common\Version::class)) {
+            $this->markTestSkipped('We need Doctrine');
+        } else {
+            if ($this->isDoctrine23OrGreaterNotAvailable()) {
+                $this->markTestSkipped('This test can only be run using Doctrine >= 2.3');
+            }
         }
+
 
         $this->selectable = $this->createSelectableMock();
         $this->criteria = $this->createCriteria();

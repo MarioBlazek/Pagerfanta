@@ -19,6 +19,10 @@ class ElasticaAdapterTest extends TestCase
 
     protected function setUp()
     {
+        if (!class_exists(\Elastica\Query::class)) {
+            $this->markTestSkipped("We need Elastica for this");
+        }
+
         $this->query = $this->getMockBuilder('Elastica\\Query')->disableOriginalConstructor()->getMock();
         $this->resultSet = $this->getMockBuilder('Elastica\\ResultSet')->disableOriginalConstructor()->getMock();
         $this->searchable = $this->getMockBuilder('Elastica\\SearchableInterface')->disableOriginalConstructor()->getMock();
