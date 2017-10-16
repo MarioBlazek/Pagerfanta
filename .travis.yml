@@ -3,20 +3,24 @@ language: php
 dist: trusty
 
 php:
-  - 5.4
-  - 5.5
-  - 5.6
+  - 7.0
+  - 7.1
+  - 7.2
+
+# test only master and dev (+ pull requests)
+branches:
+  only:
+    - master
+    - dev
 
 matrix:
   include:
-    # PHP 5.3 doesn't install on Trusty on Travis: https://github.com/travis-ci/travis-ci/issues/8219
-    - php: 5.3
-      dist: precise
-    # older releases
-    - php: 5.5
-      env: SOLARIUM_VERSION=2.* DOCTRINE_ORM_VERSION=2.3.*
     # dev versions
-    - php: 5.6
+    - php: 7.0
+      env: COMPOSER_STABILITY=dev
+    - php: 7.1
+      env: COMPOSER_STABILITY=dev
+    - php: 7.2
       env: COMPOSER_STABILITY=dev
 
 services: mongodb

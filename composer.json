@@ -1,6 +1,6 @@
 {
     "name": "pagerfanta/pagerfanta",
-    "description": "Pagination for PHP 5.3",
+    "description": "Pagination for PHP",
     "keywords": ["page","paging", "paginator", "pagination"],
     "type": "library",
     "license": "MIT",
@@ -11,10 +11,10 @@
         }
     ],
     "require": {
-        "php": ">=5.3.0"
+        "php": ">=7.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "~4 | ~5",
+        "phpunit/phpunit": "~6.0",
         "doctrine/orm": "~2.3",
         "mandango/mandango": "~1.0@dev",
         "mandango/mondator": "~1.0@dev",
@@ -40,7 +40,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "1.0.x-dev"
+            "dev-master": "2.0.x-dev"
         }
     }
 }
